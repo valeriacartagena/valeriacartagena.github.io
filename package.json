@@ -8,11 +8,11 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
+    "vue-router": "^3.6.5",
     "vue-styled-components": "^1.5.1"
   },
   "devDependencies": {
@@ -39,7 +39,6 @@
     },
     "rules": {}
   },
-
   "browserslist": [
     "> 1%",
     "last 2 versions",
