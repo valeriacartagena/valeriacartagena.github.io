@@ -2,7 +2,9 @@ export default {
   author: "Valeria Cartagena",
   hero: {
     subtitle: "Chemical Engineering @ Stanford University",
-    description: ["Description here"],
+    description: [
+      "Rising junior passionate about clean energy and innovative solutions with electrochemistry."],
+    
     cta: "Browse Products",
   },
   products: {

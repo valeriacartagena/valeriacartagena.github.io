@@ -8,7 +8,7 @@ import Books from './components/Books.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     { path: '/climate', component: Climate },
     { path: '/energy', component: Energy },
