@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve",
+    "deploy": "gh-pages -d dist",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
@@ -36,10 +38,6 @@
       "parser": "babel-eslint"
     },
     "rules": {}
-  },
-
-  "scripts": {
-    "deploy": "gh-pages -d dist"
   },
 
   "browserslist": [
