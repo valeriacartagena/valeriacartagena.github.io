@@ -177,7 +177,7 @@
     height: ${({theme:e})=>8.8*(e.screen.width.mobile-2*e.screen.padding.mobile)/16}px;
   }
 }
-`;var j={components:{Slide:x["Slide"],Card:b,Contents:f,LeftContainer:w,MainTitle:l,Subtitle:m,Paragraph:p,ButtonContainer:v,StyledButton:_,CarouselImage:S,CarouselContainer:C,StyledCarousel:P,Medium:k,ButtonText:h},props:{name:String,medium:String,summary:String,copy:Array,links:{color:String,primary:{name:String,url:String},secondary:{name:String,url:String}},images:Array},data(){return{windowWidth:window.innerWidth}},mounted(){window.addEventListener("resize",()=>{this.windowWidth=window.innerWidth})},beforeDestroy(){window.removeEventListener("resize",()=>{})}},z=j,F=r("2877"),O=Object(F["a"])(z,u,g,!1,null,null,null),E=O.exports;const T=i["b"].div`
+`;var j={components:{Slide:x["Slide"],Card:b,Contents:f,LeftContainer:w,MainTitle:l,Subtitle:m,Paragraph:p,ButtonContainer:v,StyledButton:_,CarouselImage:S,CarouselContainer:C,StyledCarousel:P,Medium:k,ButtonText:h},props:{name:String,medium:String,summary:String,copy:Array,links:{color:String,primary:{name:String,url:String},secondary:{name:String,url:String}},images:Array},data(){return{windowWidth:window.innerWidth}},mounted(){window.addEventListener("resize",()=>{this.windowWidth=window.innerWidth})},beforeDestroy(){window.removeEventListener("resize",()=>{})}},z=j,F=r("2877"),O=Object(F["a"])(z,u,g,!1,null,null,null),E=O.exports;const D=i["b"].div`
   background: url(${({theme:e})=>e.hero.background.image});
   background-size: cover;
   background-position: 50%;
@@ -194,7 +194,7 @@
     background-position: 60% -45px;
     background-size: inherit;
 }
-`,B=i["b"].div`
+`,T=i["b"].div`
   max-width: ${({theme:e})=>e.screen.width.desktop}px;
   margin: auto;
   /* padding-top: 180px; */
@@ -206,7 +206,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-`,D=i["b"].div`
+`,B=i["b"].div`
   /* TODO: CONFIGURABLE */
   width: 400px;
   margin: 10px;
@@ -218,16 +218,16 @@
     width: ${({theme:e})=>e.screen.width.mobile-2*e.screen.padding.mobile}px;
     margin: auto;
   }
-`,L=i["b"].h1`
+`,M=i["b"].h1`
   font-size: 5rem;
   margin: 32px auto;
   font-weight: 600;
   @media screen and (max-width: ${({theme:e})=>e.screen.width.desktop}px) {
     font-size: 72px;
   }
-`,M=i["b"].div`
+`,L=i["b"].div`
   margin: 36px 0px;
-`;var A={components:{Background:T,Container:B,TextContainer:D,CtaSection:M,Heading:L,Subtitle:m,Paragraph:p,StyledButton:_,ButtonText:h},props:{author:String,cta:String,subtitle:String,description:Array}},V=A,I=Object(F["a"])(V,s,d,!1,null,null,null),W=I.exports,R=function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("card",[r("contents",[r("product-title",[e._v(e._s(e.name))]),r("paragraph",[e._v(e._s(e.description))])],1),r("div",[r("styled-button",{attrs:{href:e.link.url,target:"_blank"}},[r("button-text",[e._v(e._s(e.link.name))]),r("i",{staticClass:"fas fa-arrow-right"})],1)],1)],1)},Y=[];const G=i["b"].div`
+`;var A={components:{Background:D,Container:T,TextContainer:B,CtaSection:L,Heading:M,Subtitle:m,Paragraph:p,StyledButton:_,ButtonText:h},props:{author:String,cta:String,subtitle:String,description:Array}},V=A,I=Object(F["a"])(V,s,d,!1,null,null,null),W=I.exports,R=function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("card",[r("contents",[r("product-title",[e._v(e._s(e.name))]),r("paragraph",[e._v(e._s(e.description))])],1),r("div",[r("styled-button",{attrs:{href:e.link.url,target:"_blank"}},[r("button-text",[e._v(e._s(e.link.name))]),r("i",{staticClass:"fas fa-arrow-right"})],1)],1)],1)},Y=[];const G=i["b"].div`
   /* width: 100px; */
   height: 200px;
   flex: 1;
@@ -256,7 +256,7 @@
   font-size: 24px;
   margin-top: 0px;
   margin-bottom: 8px;
-`,X=i["b"].div`
+`,U=i["b"].div`
   & > * {
     margin: 24px 0px;
   }
@@ -279,7 +279,7 @@
     transition: 0.2s all ease-out;
     /* color: ${({theme:e})=>e.color.link}; */
   }
-`;var J={components:{Card:G,ProductTitle:N,Paragraph:p,Contents:X,StyledButton:H,ButtonText:h},props:{name:String,description:String,link:{name:String,url:String}}},U=J,Z=Object(F["a"])(U,R,Y,!1,null,null,null),q=Z.exports,Q=function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("styled-a",{attrs:{href:e.url,target:"_blank","aria-label":e.alt}},[r("card",[r("logo",{attrs:{src:e.src,alt:e.alt}})],1)],1)},K=[];const ee=i["b"].a`
+`;var J={components:{Card:G,ProductTitle:N,Paragraph:p,Contents:U,StyledButton:H,ButtonText:h},props:{name:String,description:String,link:{name:String,url:String}}},X=J,Z=Object(F["a"])(X,R,Y,!1,null,null,null),Q=Z.exports,q=function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("styled-a",{attrs:{href:e.url,target:"_blank","aria-label":e.alt}},[r("card",[r("logo",{attrs:{src:e.src,alt:e.alt}})],1)],1)},K=[];const ee=i["b"].a`
   margin: 2rem 1rem;
   @media screen and (max-width: ${({theme:e})=>e.screen.width.desktop}px) {
     margin: 1rem 0.5rem;
@@ -320,7 +320,7 @@
   mix-blend-mode: exclusion;
   filter: invert(1);
   opacity: 0.8;
-`;var ne={components:{Card:te,Logo:re,StyledA:ee},props:{src:String,url:String,alt:String}},ae=ne,oe=Object(F["a"])(ae,Q,K,!1,null,null,null),ie=oe.exports,se=function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("app-footer",[r("div",[r("subtitle",[e._v(e._s(e.footer.tagline))])],1),r("icon-container",e._l(e.footer.links,(function(e,t){return r("icons",{key:"product-desctiption-"+t,attrs:{href:e.url,target:"_blank"}},[r("i",{class:e.fa})])})),1)],1)},de=[];const le=i["b"].div`
+`;var ne={components:{Card:te,Logo:re,StyledA:ee},props:{src:String,url:String,alt:String}},ae=ne,oe=Object(F["a"])(ae,q,K,!1,null,null,null),ie=oe.exports,se=function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("app-footer",[r("div",[r("subtitle",[e._v(e._s(e.footer.tagline))])],1),r("icon-container",e._l(e.footer.links,(function(e,t){return r("icons",{key:"product-desctiption-"+t,attrs:{href:e.url,target:"_blank"}},[r("i",{class:e.fa})])})),1)],1)},de=[];const le=i["b"].div`
   width: ${({theme:e})=>e.screen.width.desktop-2*e.screen.padding.desktop}px;
   margin: 64px auto;
   padding: 0px ${({theme:e})=>e.screen.padding.desktop}px;
@@ -352,7 +352,7 @@
   }
 `,pe=i["b"].div`
   display: flex;
-`;var me={components:{AppFooter:le,Icons:ce,IconContainer:pe,Subtitle:m},props:{footer:{tagline:String,links:Array}}},he=me,ue=Object(F["a"])(he,se,de,!1,null,null,null),ge=ue.exports,xe={author:"Sam Xie",hero:{subtitle:"Software Engineer at Cash App.",description:["Engineering large scale software by day.","Launching boutique products by night."],cta:"Browse Products"},products:{featured:[{name:"DoubleText",medium:"React · GraphQL · Golang",summary:"The #1 Texting Analysis App",copy:["Learn from millions of your messages, without giving up your data or privacy."],links:{color:"#363636",primary:{name:"Discover",url:"https://doubletext.me/"}},images:["/doubletext/0.jpg","/doubletext/1.jpg","/doubletext/2.jpg","/doubletext/3.jpg"]}],minor:[{name:"Volunteer Portal",description:"Find and track volunteer opportunities.",link:{name:"Github",url:"https://github.com/zendesk/volunteer_portal"}},{name:"Weightless VR",description:"Short survival experience on an abandoned planet.",link:{name:"Download",url:"https://samzx.itch.io/weightless-vr"}},{name:"Soft Portfolio",description:"Neumorphic personal portfolio website.",link:{name:"Github",url:"https://github.com/samzx/soft-portfolio"}}]},logoSection:{title:"As hired by",logos:[{src:"/logos/unimelb.svg",url:"https://unimelb.edu.au/",alt:"Unimelb"},{src:"/logos/zendesk.svg",url:"https://www.zendesk.com/",alt:"Zendesk"},{src:"/logos/cashapp.svg",url:"https://cash.app/",alt:"Cash App"}]},footer:{tagline:"Sam Zhong Sheng Xie — Melbourne, Australia",links:[{name:"Twitter",url:"https://twitter.com/samxstudio",fa:"fab fa-twitter"},{name:"Medium",url:"https://medium.com/@samxie",fa:"fab fa-medium"},{name:"Github",url:"https://github.com/samzx",fa:"fab fa-github"},{name:"Linkedin",url:"https://www.linkedin.com/in/xiesam/",fa:"fab fa-linkedin"},{name:"Email",url:"mailto:contact@samxie.net",fa:"fa fa-envelope"}]}},be={hero:{background:{image:"/falcon-light-plus-50-shadow.png"}},color:{link:"#005c89",text:"#1d1d1f",background:"linear-gradient(160deg, #efefef 0%, #ddd 40%, #ddd 100%)",fallbackBackground:"#fff"},card:{background:"radial-gradient(145% 145.46% at 0% 0%, #efefef 0%, #eee 100%)",boxShadow:"2px 4px 4px rgba(0,0,0,0.05), inset 1px 1px 2px hsla(0,0%,100%,0.5)",carousel:{opacity:1,boxShadow:"-10px -10px 30px rgba(255, 255, 255, 0), 10px 10px 30px rgba(0, 0, 0, 0.05)"},button:{text:"#222",background:"#efefef",boxShadow:{primary:"2px 4px 4px rgba(0,0,0,0.05), inset 1px 1px 2px hsla(0,0%,100%,0.25)",secondary:"2px 4px 4px rgba(0,0,0,0.05), inset 1px 1px 2px hsla(0,0%,100%,0.5)",hover:"linear-gradient(145deg, rgba(0,0,0,0.05), rgba(255,255,255,0.2))"},hoverIntensity:1}},screen:{width:{mobile:360,tablet:600,desktop:980},padding:{mobile:20,tablet:20,desktop:48}}},fe={hero:{background:{image:"/falcon-dark-minus-50-brightness.png"}},color:{link:"#4bafbd",text:"#f5f5f7",background:"linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 40%, #1a1a1a 100%)",fallbackBackground:"#2a2a2a"},card:{background:"linear-gradient(141.65deg,#151515 15.17%,#050505 86.5%)",boxShadow:"2px 4px 4px rgba(0,0,0,0.45), inset 1px 1px 2px hsla(0,0%,100%,.15)",carousel:{opacity:1,boxShadow:"-10px -10px 30px rgba(255, 255, 255, 0), 10px 10px 30px rgba(0, 0, 0, 1)"},button:{text:"#fff",background:"#151515",boxShadow:{primary:"2px 4px 4px rgba(0,0,0,0.45), inset 1px 1px 2px hsla(0,0%,100%,.15)",secondary:"2px 4px 4px rgba(0,0,0,0.45), inset 1px 1px 2px hsla(0,0%,100%,.15)",hover:"linear-gradient(145deg, rgba(0,0,0,0.66), rgba(255,255,255,0.2))"},hoverIntensity:.25}},screen:{width:{mobile:360,tablet:600,desktop:980},padding:{mobile:20,tablet:20,desktop:48}}};const we=n["a"].observable({dark:!1}),ke={toggleDark(){we.dark=!we.dark},setDark(e){we.dark=e}},ye=()=>{we.dark?(document.documentElement.style.setProperty("--main-color",fe.color.text),document.documentElement.style.setProperty("--main-background-color",fe.color.background),document.documentElement.style.setProperty("--fallback-background-color",fe.color.fallbackBackground),document.documentElement.style.setProperty("--link-color",fe.color.link)):(document.documentElement.style.setProperty("--main-color",be.color.text),document.documentElement.style.setProperty("--main-background-color",be.color.background),document.documentElement.style.setProperty("--fallback-background-color",be.color.fallbackBackground),document.documentElement.style.setProperty("--link-color",be.color.link))};if(window.matchMedia)try{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{e.matches?we.dark=!0:we.dark=!1,ye()})}catch(Ee){console.error(Ee)}const ve=()=>{window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?we.dark=!0:we.dark=!1,ye();var e=document.getElementsByTagName("html")[0];e.style.setProperty("transition","0.3s color, 0.3s background");var t=document.getElementsByTagName("body")[0];t.style.setProperty("transition","0.3s color, 0.3s background")};i["c"]`
+`;var me={components:{AppFooter:le,Icons:ce,IconContainer:pe,Subtitle:m},props:{footer:{tagline:String,links:Array}}},he=me,ue=Object(F["a"])(he,se,de,!1,null,null,null),ge=ue.exports,xe={author:"Valeria Cartagena",hero:{subtitle:"Chemical Engineering @ Stanford University",description:["Description here"],cta:"Browse Products"},products:{featured:[{name:"DoubleText",medium:"React · GraphQL · Golang",summary:"The #1 Texting Analysis App",copy:["Learn from millions of your messages, without giving up your data or privacy."],links:{color:"#363636",primary:{name:"Discover",url:"https://doubletext.me/"}},images:["/doubletext/0.jpg","/doubletext/1.jpg","/doubletext/2.jpg","/doubletext/3.jpg"]}],minor:[{name:"Volunteer Portal",description:"Find and track volunteer opportunities.",link:{name:"Github",url:"https://github.com/zendesk/volunteer_portal"}},{name:"Weightless VR",description:"Short survival experience on an abandoned planet.",link:{name:"Download",url:"https://samzx.itch.io/weightless-vr"}},{name:"Soft Portfolio",description:"Neumorphic personal portfolio website.",link:{name:"Github",url:"https://github.com/samzx/soft-portfolio"}}]},logoSection:{title:"As hired by",logos:[{src:"/logos/unimelb.svg",url:"https://unimelb.edu.au/",alt:"Unimelb"},{src:"/logos/zendesk.svg",url:"https://www.zendesk.com/",alt:"Zendesk"},{src:"/logos/cashapp.svg",url:"https://cash.app/",alt:"Cash App"}]},footer:{tagline:"Sam Zhong Sheng Xie — Melbourne, Australia",links:[{name:"Twitter",url:"https://twitter.com/samxstudio",fa:"fab fa-twitter"},{name:"Medium",url:"https://medium.com/@samxie",fa:"fab fa-medium"},{name:"Github",url:"https://github.com/samzx",fa:"fab fa-github"},{name:"Linkedin",url:"https://www.linkedin.com/in/xiesam/",fa:"fab fa-linkedin"},{name:"Email",url:"mailto:contact@samxie.net",fa:"fa fa-envelope"}]}},be={hero:{background:{image:"/falcon-light-plus-50-shadow.png"}},color:{link:"#005c89",text:"#1d1d1f",background:"linear-gradient(160deg, #efefef 0%, #ddd 40%, #ddd 100%)",fallbackBackground:"#fff"},card:{background:"radial-gradient(145% 145.46% at 0% 0%, #efefef 0%, #eee 100%)",boxShadow:"2px 4px 4px rgba(0,0,0,0.05), inset 1px 1px 2px hsla(0,0%,100%,0.5)",carousel:{opacity:1,boxShadow:"-10px -10px 30px rgba(255, 255, 255, 0), 10px 10px 30px rgba(0, 0, 0, 0.05)"},button:{text:"#222",background:"#efefef",boxShadow:{primary:"2px 4px 4px rgba(0,0,0,0.05), inset 1px 1px 2px hsla(0,0%,100%,0.25)",secondary:"2px 4px 4px rgba(0,0,0,0.05), inset 1px 1px 2px hsla(0,0%,100%,0.5)",hover:"linear-gradient(145deg, rgba(0,0,0,0.05), rgba(255,255,255,0.2))"},hoverIntensity:1}},screen:{width:{mobile:360,tablet:600,desktop:980},padding:{mobile:20,tablet:20,desktop:48}}},fe={hero:{background:{image:"/falcon-dark-minus-50-brightness.png"}},color:{link:"#4bafbd",text:"#f5f5f7",background:"linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 40%, #1a1a1a 100%)",fallbackBackground:"#2a2a2a"},card:{background:"linear-gradient(141.65deg,#151515 15.17%,#050505 86.5%)",boxShadow:"2px 4px 4px rgba(0,0,0,0.45), inset 1px 1px 2px hsla(0,0%,100%,.15)",carousel:{opacity:1,boxShadow:"-10px -10px 30px rgba(255, 255, 255, 0), 10px 10px 30px rgba(0, 0, 0, 1)"},button:{text:"#fff",background:"#151515",boxShadow:{primary:"2px 4px 4px rgba(0,0,0,0.45), inset 1px 1px 2px hsla(0,0%,100%,.15)",secondary:"2px 4px 4px rgba(0,0,0,0.45), inset 1px 1px 2px hsla(0,0%,100%,.15)",hover:"linear-gradient(145deg, rgba(0,0,0,0.66), rgba(255,255,255,0.2))"},hoverIntensity:.25}},screen:{width:{mobile:360,tablet:600,desktop:980},padding:{mobile:20,tablet:20,desktop:48}}};const we=n["a"].observable({dark:!1}),ke={toggleDark(){we.dark=!we.dark},setDark(e){we.dark=e}},ye=()=>{we.dark?(document.documentElement.style.setProperty("--main-color",fe.color.text),document.documentElement.style.setProperty("--main-background-color",fe.color.background),document.documentElement.style.setProperty("--fallback-background-color",fe.color.fallbackBackground),document.documentElement.style.setProperty("--link-color",fe.color.link)):(document.documentElement.style.setProperty("--main-color",be.color.text),document.documentElement.style.setProperty("--main-background-color",be.color.background),document.documentElement.style.setProperty("--fallback-background-color",be.color.fallbackBackground),document.documentElement.style.setProperty("--link-color",be.color.link))};if(window.matchMedia)try{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{e.matches?we.dark=!0:we.dark=!1,ye()})}catch(Ee){console.error(Ee)}const ve=()=>{window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?we.dark=!0:we.dark=!1,ye();var e=document.getElementsByTagName("html")[0];e.style.setProperty("transition","0.3s color, 0.3s background");var t=document.getElementsByTagName("body")[0];t.style.setProperty("transition","0.3s color, 0.3s background")};i["c"]`
   /* @font-face {
     font-family: "SF Pro Display";
     font-weight: 400;
@@ -480,5 +480,5 @@
     transform: translateY(-5px);
     transition: 0.2s transform ease-out;
   }
-`;var je={name:"App",components:{Hero:W,Card:E,MinorCard:q,MinorCardContainer:_e,Foot:ge,ThemeProvider:i["a"],CardContainer:$e,LightToggle:Pe,MainTitle:l,LogoContainer:Ce,LogoSectionContainer:Se,LogoCard:ie},computed:{theme(){return we.dark?fe:be},isDark(){return we.dark}},methods:{toggleTheme:()=>{ke.toggleDark(),ye()}},data:()=>({...xe})};ve();var ze=je,Fe=(r("034f"),Object(F["a"])(ze,a,o,!1,null,null,null)),Oe=Fe.exports;n["a"].config.productionTip=!1,new n["a"]({render:e=>e(Oe)}).$mount("#app")},"85ec":function(e,t,r){}});
-//# sourceMappingURL=app.4ddafe82.js.map
+`;var je={name:"App",components:{Hero:W,Card:E,MinorCard:Q,MinorCardContainer:_e,Foot:ge,ThemeProvider:i["a"],CardContainer:$e,LightToggle:Pe,MainTitle:l,LogoContainer:Ce,LogoSectionContainer:Se,LogoCard:ie},computed:{theme(){return we.dark?fe:be},isDark(){return we.dark}},methods:{toggleTheme:()=>{ke.toggleDark(),ye()}},data:()=>({...xe})};ve();var ze=je,Fe=(r("034f"),Object(F["a"])(ze,a,o,!1,null,null,null)),Oe=Fe.exports;n["a"].config.productionTip=!1,new n["a"]({render:e=>e(Oe)}).$mount("#app")},"85ec":function(e,t,r){}});
+//# sourceMappingURL=app.6fcc02b5.js.map
