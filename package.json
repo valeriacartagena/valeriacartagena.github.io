@@ -38,6 +38,10 @@
     "rules": {}
   },
 
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+
   "browserslist": [
     "> 1%",
     "last 2 versions",
