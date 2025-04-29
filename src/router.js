@@ -13,6 +13,6 @@ export default new Router({
     { path: '/climate', component: Climate },
     { path: '/energy', component: Energy },
     { path: '/projects', component: Projects },
-    { path: '/books', component: Books }
+    { path: '/books', component: Books },
   ]
-})
+});
