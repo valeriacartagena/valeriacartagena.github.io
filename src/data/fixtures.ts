@@ -53,27 +53,27 @@ export default {
     // Only supports 0-3 at the moment
     minor: [
       {
-        name: "Volunteer Portal",
+        name: "Climate Change",
         description: "Find and track volunteer opportunities.",
         link: {
-          name: "Github",
-          url: "https://github.com/zendesk/volunteer_portal"
+          name: "more information",
+          url: "https://valeriacartagena.github.io/#/climate"
         }
       },
       {
-        name: "Weightless VR",
+        name: "Energy Transition",
         description: "Short survival experience on an abandoned planet.",
         link: {
-          name: "Download",
-          url: "https://samzx.itch.io/weightless-vr"
+          name: "electrochemistry research",
+          url: "https://valeriacartagena.github.io/#/energy"
         }
       },
       {
-        name: "Soft Portfolio",
-        description: "Neumorphic personal portfolio website.",
+        name: "Computational models",
+        description: "The power of math!",
         link: {
-          name: "Github",
-          url: "https://github.com/samzx/soft-portfolio"
+          name: "projects",
+          url: "https://valeriacartagena.github.io/#/projects"
         }
       }
     ]
