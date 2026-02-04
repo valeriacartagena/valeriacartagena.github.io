@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  /* border: 2px solid white; Optional, but looks clean */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.bio {
+  font-size: 0.9rem;
+  max-width: 500px;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.email {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.email a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.link-btn {
+  background-color: var(--color-primary);
+  color: #000;
+  border: none;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 1rem;
+  border-radius: 8px;
+  /* Slightly rounded corners */
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(154, 176, 131, 0.4);
+}
+
+.link-btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(154, 176, 131, 0.5);
+}
+
+.link-btn:active {
+  transform: translateY(0);
+}
+
+.footer {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: center;
+  margin-top: auto;
+  font-weight: 500;
+}
