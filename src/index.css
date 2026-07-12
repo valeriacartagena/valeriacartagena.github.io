@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
-  --color-primary: #9ab083; /* Sage green */
-  --color-primary-hover: #8a9f74;
-  --color-text: #000000;
-  --color-bg: #ffffff;
+  --color-bg: #fdf1e7;          /* cream */
+  --color-ink: #38333c;         /* warm charcoal */
+  --color-body: #5a5258;
+  --color-pink: #ef8cba;
+  --color-yellow: #fbe191;
+  --color-blue: #a4c3f8;
+  --color-primary: #ef8cba;
+  --color-primary-hover: #e678ac;
+  --color-accent: #c2578f;      /* deep rose (links, accents) */
+  --color-button: #3c3644;      /* dark plum-charcoal (buttons) */
+  --font-display: 'Fraunces', Georgia, serif;
   --font-main: 'Montserrat', sans-serif;
   --spacing-unit: 1rem;
 }
@@ -18,7 +25,7 @@
 body {
   font-family: var(--font-main);
   background-color: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,27 +36,21 @@ body {
 
 #root {
   width: 100%;
-  max-width: 600px;
-  padding: 3rem 1.5rem;
+  max-width: 1000px;
+  padding: 3.5rem 1.5rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 1;
 }
 
 p {
   font-size: 0.95rem;
-  color: #333;
+  color: var(--color-body);
 }
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--color-accent);
 }
