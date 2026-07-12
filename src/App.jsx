@@ -1,30 +1,43 @@
+import { useEffect, useState } from 'react'
+import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
+import { topics } from './data/topics'
+import Home from './pages/Home'
+import TopicPage from './pages/TopicPage'
+import ArticlePage from './pages/ArticlePage'
+import NotFound from './pages/NotFound'
 import './App.css'
 
-const GitHubIcon = () => (
-  <svg className="link-icon" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
-    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-  </svg>
-)
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
+function MenuIcon({ open }) {
+  return open ? (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  ) : (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  )
+}
 
 function App() {
-  const links = [
-    { title: 'LinkedIn', url: 'https://www.linkedin.com/in/valeriacartagena/' },
-    { title: 'GitHub', url: 'https://github.com/valeriacartagena', icon: <GitHubIcon /> },
-    { title: 'Google Scholar', url: 'https://scholar.google.com/citations?user=Ux4P00UAAAAJ&hl=en' }
-  ];
+  const [navOpen, setNavOpen] = useState(false)
+  const closeNav = () => setNavOpen(false)
 
-  const news = [
-    {
-      date: '06/15/2026',
-      text: (
-        <>
-          Joined the <a href="https://batterycenter.slac.stanford.edu/" target="_blank" rel="noopener noreferrer">SLAC Battery Research Center</a>, where I will be conducting research as a <a href="https://explore-energy.stanford.edu/research/super" target="_blank" rel="noopener noreferrer">SUPER</a> intern for the summer!
-        </>
-      )
-    },
-    { date: '06/10/2026', text: 'Finished junior year at Stanford 🥳' },
-    { date: '11/09/2025', text: 'Won HackPrinceton! 1st Place - Best Sustainability Hack and 3rd Place - Best Overall, among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic and Amplitude.' }
-  ];
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setNavOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   return (
     <>
@@ -34,37 +47,61 @@ function App() {
         <span className="blob blob-3" />
       </div>
 
-      <div className="container">
-        <header className="hero">
-          <img src="/profile.png" alt="Valeria Cartagena" className="profile-img" />
-          <div className="hero-info">
-            <p className="hello">Hi, I&apos;m</p>
-            <h1 className="name">Valeria Cartagena</h1>
-            <p className="bio"> CS + Energy Science & Engineering @ Stanford University</p>
-            <p className="research"> I'm currently working on Agentic AI for scientific discovery and sustainability.</p>
-            <p className="email">Reach out to <a href="mailto:valecv@stanford.edu">valecv@stanford.edu!</a></p>
-            <div className="links-section">
-              {links.map((link) => (
-                <a key={link.title} href={link.url} className="link-btn" target="_blank" rel="noopener noreferrer">
-                  {link.icon}
-                  {link.title}
-                </a>
-              ))}
-            </div>
-          </div>
-        </header>
+      <button
+        type="button"
+        className="menu-btn"
+        aria-label={navOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={navOpen}
+        onClick={() => setNavOpen((open) => !open)}
+      >
+        <MenuIcon open={navOpen} />
+      </button>
 
-        <section className="news-section">
-          <h2 className="news-title">News</h2>
-          <ul className="news-list">
-            {news.map((item) => (
-              <li key={item.date} className="news-item">
-                <span className="news-date">{item.date}</span>
-                <span className="news-text">{item.text}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
+      <div
+        className={`nav-backdrop${navOpen ? ' open' : ''}`}
+        onClick={closeNav}
+        aria-hidden="true"
+      />
+
+      <aside className={`side-nav${navOpen ? ' open' : ''}`}>
+        <NavLink to="/" end onClick={closeNav} className={({ isActive }) => `side-topic${isActive ? ' active' : ''}`}>
+          Home
+        </NavLink>
+        {topics.map((topic) => (
+          <div key={topic.slug} className="side-group">
+            <NavLink
+              to={`/${topic.slug}`}
+              end
+              onClick={closeNav}
+              className={({ isActive }) => `side-topic${isActive ? ' active' : ''}`}
+            >
+              {topic.name}
+            </NavLink>
+            <ul className="side-entries">
+              {topic.entries.map((entry) => (
+                <li key={entry.slug}>
+                  <NavLink
+                    to={`/${topic.slug}/${entry.slug}`}
+                    onClick={closeNav}
+                    className={({ isActive }) => `side-entry${isActive ? ' active' : ''}`}
+                  >
+                    {entry.short ?? entry.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </aside>
+
+      <div className="container">
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:topicSlug" element={<TopicPage />} />
+          <Route path="/:topicSlug/:entrySlug" element={<ArticlePage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
         <footer className="footer">
           <p>Copyright © 2026 Valeria Cartagena. All rights reserved.</p>
