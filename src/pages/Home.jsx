@@ -13,15 +13,15 @@ function Home() {
 
   const news = [
     {
-      date: '06/15/2026',
+      date: '06/2026',
       text: (
         <>
           Joined the <a href="https://batterycenter.slac.stanford.edu/" target="_blank" rel="noopener noreferrer">SLAC Battery Research Center</a>, where I will be conducting research as a <a href="https://explore-energy.stanford.edu/research/super" target="_blank" rel="noopener noreferrer">SUPER</a> intern for the summer!
         </>
       )
     },
-    { date: '06/10/2026', text: 'Finished junior year at Stanford 🥳' },
-    { date: '11/09/2025', text: (
+    { date: '06/2026', text: 'Finished junior year at Stanford 🥳' },
+    { date: '11/2025', text: (
       <> <a href="https://devpost.com/software/terralink-h5vuel" target="_blank" rel="noopener noreferrer">TerraLink</a> won HackPrinceton! Best Sustainability Hack (1st Place) and Best Overall (3rd Place), among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic, Amplitude, and EaglePlan.</>
     )}
   ];
