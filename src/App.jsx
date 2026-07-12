@@ -22,7 +22,8 @@ function App() {
         </>
       )
     },
-    { date: '06/10/2026', text: 'Finished junior year at Stanford.' }
+    { date: '06/10/2026', text: 'Finished junior year at Stanford 🥳' },
+    { date: '11/09/2025', text: 'Won HackPrinceton! 1st Place - Best Sustainability Hack and 3rd Place - Best Overall, among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic and Amplitude.' }
   ];
 
   return (
