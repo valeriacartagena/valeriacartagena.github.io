@@ -16,7 +16,7 @@ function Home() {
       date: '06/2026',
       text: (
         <>
-          Joined the <a href="https://batterycenter.slac.stanford.edu/" target="_blank" rel="noopener noreferrer">SLAC Battery Research Center</a>, where I will be conducting research as a <a href="https://explore-energy.stanford.edu/research/super" target="_blank" rel="noopener noreferrer">SUPER</a> intern for the summer!
+          Joined the <a href="https://batterycenter.slac.stanford.edu/" target="_blank" rel="noopener noreferrer">SLAC Battery Research Center</a>, where I will be conducting research as a <a href="https://explore-energy.stanford.edu/research/super/super-scholars" target="_blank" rel="noopener noreferrer">SUPER</a> intern for the summer!
         </>
       )
     },
