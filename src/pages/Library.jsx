@@ -62,7 +62,7 @@ function Bookcase({ books }) {
 
 function Library() {
   return (
-    <section className="library">
+    <section className="page">
       <h2 className="page-title">My Library</h2>
       <p className="page-intro">I LOVE reading. Here is a hand-picked collection of books I read and recommend.</p>
 

@@ -13,6 +13,22 @@ function Home() {
 
   const news = [
     {
+      date: '07/2026',
+      text: (
+        <>
+          Attended Lawrence Berkeley National Laboratory&apos;s <a href="https://dl4sci-school.lbl.gov/" target="_blank" rel="noopener noreferrer">Deep Learning for Science School</a>.
+        </>
+      )
+    },
+    {
+      date: '07/2026',
+      text: (
+        <>
+          Attended <a href="https://events.ycombinator.com/startup-school-2026" target="_blank" rel="noopener noreferrer">Y Combinator Startup School</a>.
+        </>
+      )
+    },
+    {
       date: '06/2026',
       text: (
         <>
@@ -21,6 +37,14 @@ function Home() {
       )
     },
     { date: '06/2026', text: 'Finished junior year at Stanford 🥳' },
+    {
+      date: '04/2026',
+      text: (
+        <>
+          Co-led a <a href="https://explore-energy.stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford Explore Energy</a> field trip to the <a href="https://www.tesla.com/giga-nevada" target="_blank" rel="noopener noreferrer">Tesla-Panasonic Gigafactory</a> and <a href="https://www.redwoodmaterials.com/" target="_blank" rel="noopener noreferrer">Redwood Materials</a> in Nevada, exploring the lithium-ion battery supply chain from cell production to recycling.
+        </>
+      )
+    },
     {
       date: '11/2025', text: (
         <> <a href="https://devpost.com/software/terralink-h5vuel" target="_blank" rel="noopener noreferrer">TerraLink</a> won HackPrinceton! Best Sustainability Hack (1st Place) and Best Overall (3rd Place), among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic, Amplitude, and EaglePlan.</>
@@ -52,8 +76,8 @@ function Home() {
       <section id="news" className="news-section">
         <h2 className="news-title">News</h2>
         <ul className="news-list">
-          {news.map((item) => (
-            <li key={item.date} className="news-item">
+          {news.map((item, i) => (
+            <li key={`${item.date}-${i}`} className="news-item">
               <span className="news-date">{item.date}</span>
               <span className="news-text">{item.text}</span>
             </li>
