@@ -1,0 +1,11 @@
+# dependencies
+node_modules/
+
+# build output (deployed to the gh-pages branch by `npm run deploy`)
+dist/
+
+# vite cache
+.vite/
+
+# OS files
+.DS_Store
