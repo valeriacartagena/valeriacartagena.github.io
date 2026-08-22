@@ -21,21 +21,23 @@ function Home() {
       )
     },
     { date: '06/2026', text: 'Finished junior year at Stanford 🥳' },
-    { date: '11/2025', text: (
-      <> <a href="https://devpost.com/software/terralink-h5vuel" target="_blank" rel="noopener noreferrer">TerraLink</a> won HackPrinceton! Best Sustainability Hack (1st Place) and Best Overall (3rd Place), among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic, Amplitude, and EaglePlan.</>
-    )}
+    {
+      date: '11/2025', text: (
+        <> <a href="https://devpost.com/software/terralink-h5vuel" target="_blank" rel="noopener noreferrer">TerraLink</a> won HackPrinceton! Best Sustainability Hack (1st Place) and Best Overall (3rd Place), among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic, Amplitude, and EaglePlan.</>
+      )
+    }
   ];
 
   return (
     <>
-      <header className="hero">
+      <header id="home" className="hero">
         <img src="/profile.png" alt="Valeria Cartagena" className="profile-img" />
         <div className="hero-info">
           <p className="hello">Hi, I&apos;m</p>
           <h1 className="name">Valeria Cartagena</h1>
-          <p className="bio"> CS + Energy Science & Engineering @ Stanford University</p>
+          <p className="bio"> ChemE + CS + Energy Science & Engineering @ Stanford University</p>
           <p className="research"> I'm currently working on Agentic AI for scientific discovery and sustainability.</p>
-          <p className="email">Reach out to <a href="mailto:valecv@stanford.edu">valecv@stanford.edu!</a></p>
+          <p className="email">Reach out to <a href="mailto:valecv@stanford.edu">valecv@stanford.edu</a>!</p>
           <div className="links-section">
             {links.map((link) => (
               <a key={link.title} href={link.url} className="link-btn" target="_blank" rel="noopener noreferrer">
@@ -47,7 +49,7 @@ function Home() {
         </div>
       </header>
 
-      <section className="news-section">
+      <section id="news" className="news-section">
         <h2 className="news-title">News</h2>
         <ul className="news-list">
           {news.map((item) => (
@@ -59,6 +61,10 @@ function Home() {
         </ul>
       </section>
 
+      <section id="research" className="news-section">
+        <h2 className="news-title">Research</h2>
+        <p className="placeholder">Coming soon.</p>
+      </section>
     </>
   )
 }
