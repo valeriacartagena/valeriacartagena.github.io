@@ -253,6 +253,7 @@
   --plank-h: 14px;    /* thickness of the wooden plank */
   --book-h: 240px;    /* cover height */
   --wall-w: 12px;     /* thickness of the bookcase side walls */
+  --depth: 64px;      /* how far the shelves recede into the screen */
 
   /* Light-oak grain generated with an SVG noise filter (no image files).
      Horizontal grain for planks, vertical for the side walls. */
@@ -260,118 +261,199 @@
   --wood-v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='480'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.16 0.006' numOctaves='4' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='1.5' intercept='0.2'/%3E%3CfeFuncG type='linear' slope='1.5' intercept='0.2'/%3E%3CfeFuncB type='linear' slope='1.5' intercept='0.2'/%3E%3CfeFuncA type='linear' slope='0' intercept='1'/%3E%3C/feComponentTransfer%3E%3CfeBlend in2='SourceGraphic' mode='multiply'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23e8d4b6' filter='url(%23w)'/%3E%3C/svg%3E");
 }
 
-/* Top plank that closes the bookcase; sits flush above the grid. */
-.shelf-top {
+/* ---- 3D bookcase ----
+   Built from real surfaces with CSS 3D transforms: the back panel is pushed
+   back by --depth; the side walls' inner faces and every plank's top face are
+   rotated 90° so they recede toward one vanishing point. The eye sits a little
+   above the case (perspective-origin), so each shelf's top surface is visible. */
+
+.bookcase {
+  position: relative;
+  border-radius: 4px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
+}
+
+/* Frame and books are separate 3D layers with identical perspective, so they
+   project the same way but never plane-split each other (see Library.jsx). */
+.case-frame,
+.case-books {
+  perspective: 2000px;
+  perspective-origin: 50% -10%;
+}
+
+.case-frame {
+  position: absolute;
+  inset: 0;
+}
+
+.case-books {
+  position: relative;
+  padding-top: var(--plank-h); /* leaves room for the top board */
+}
+
+.frame-row {
+  position: relative;
+  height: var(--row-h);
+  transform-style: preserve-3d;
+}
+
+/* back panel: pale, washed-out vertical grain, darker toward the edges */
+.case-back {
+  position: absolute;
+  top: var(--plank-h);
+  bottom: 0;
+  left: var(--wall-w);
+  right: var(--wall-w);
+  transform: translateZ(calc(-1 * var(--depth)));
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 48px),
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.18),
+      rgba(0, 0, 0, 0) 10%,
+      rgba(0, 0, 0, 0) 90%,
+      rgba(0, 0, 0, 0.18)
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    var(--wood-v);
+  background-size: auto, auto, auto, 96px 960px;
+}
+
+/* side walls: a front strip, plus an inner face that recedes into the case */
+.case-wall {
+  position: absolute;
+  top: var(--plank-h);
+  bottom: 0;
+  width: var(--wall-w);
+  transform-style: preserve-3d;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.12)),
+    var(--wood-v);
+  background-size: auto, 96px 960px;
+}
+
+.case-wall-left {
+  left: 0;
+  border-radius: 0 0 0 4px;
+}
+
+.case-wall-right {
+  right: 0;
+  border-radius: 0 0 4px 0;
+}
+
+.case-wall::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--depth);
+  background-size: auto, 96px 960px;
+}
+
+.case-wall-left::after {
+  left: 100%;
+  transform-origin: left center;
+  transform: rotateY(90deg);
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.3)),
+    var(--wood-v);
+}
+
+.case-wall-right::after {
+  right: 100%;
+  transform-origin: right center;
+  transform: rotateY(-90deg);
+  background-image:
+    linear-gradient(to left, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.3)),
+    var(--wood-v);
+}
+
+/* one shelf row of books */
+.shelf-row {
+  position: relative;
+  height: var(--row-h);
+  transform-style: preserve-3d;
+  /* The row is a transparent plane at z=0, in front of the books (which are
+     set back into the shelf). Hit-testing in 3D is by depth, so without this
+     the row would swallow the mouse and books could never be hovered. */
+  pointer-events: none;
+}
+
+.book {
+  pointer-events: auto;
+}
+
+.shelf-books {
+  position: absolute;
+  top: 0;
+  left: var(--wall-w);
+  right: var(--wall-w);
+  height: calc(var(--row-h) - var(--plank-h));
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* minmax(0) lets columns shrink below cover width */
+  padding: 0 1.25rem;
+  transform-style: preserve-3d;
+  /* books stand a little way back on the shelf, not on its front edge */
+  transform: translateZ(calc(var(--depth) * -0.45));
+}
+
+/* plank front face (the visible edge of the board) */
+.plank {
+  position: absolute;
+  left: var(--wall-w);
+  right: var(--wall-w);
+  bottom: 0;
   height: var(--plank-h);
-  border-radius: 4px 4px 0 0;
+  transform-style: preserve-3d;
   background-image:
     linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0) 3px,
-      rgba(0, 0, 0, 0) calc(100% - 4px),
-      rgba(0, 0, 0, 0.14)
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0.2) 3px,
+      rgba(0, 0, 0, 0) 4px,
+      rgba(0, 0, 0, 0) calc(100% - 3px),
+      rgba(0, 0, 0, 0.25)
     ),
+    var(--wood-h);
+  background-size: auto, 960px 96px; /* tile drawn at 2x so the grain reads at plank size */
+}
+
+/* plank top surface, folded back into the case */
+.plank-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--depth);
+  transform-origin: top center;
+  transform: rotateX(-90deg);
+  background-image:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(0, 0, 0, 0.2)),
     var(--wood-h);
   background-size: auto, 960px 96px;
 }
 
-.bookshelf {
+/* top board: spans the full width and caps the side walls */
+.case-top {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* minmax(0) lets columns shrink below cover width */
-  grid-auto-rows: var(--row-h);
-  padding: 0 calc(1.25rem + var(--wall-w));
-  border-radius: 0 0 4px 4px;
-  overflow: hidden;
-  /* soft shadow cast by the books just above each plank */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent calc(var(--row-h) - var(--plank-h) - 10px),
-    rgba(0, 0, 0, 0.07) calc(var(--row-h) - var(--plank-h)),
-    transparent calc(var(--row-h) - var(--plank-h)),
-    transparent var(--row-h)
-  );
-}
-
-/* Planks: a wood-textured layer masked to the bottom of every row, so they
-   line up however the books wrap. A repeating gradient on top adds a
-   light top edge and darker underside for a bevelled look. */
-.bookshelf::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent calc(var(--row-h) - var(--plank-h)),
-      rgba(255, 255, 255, 0.4) calc(var(--row-h) - var(--plank-h)),
-      rgba(255, 255, 255, 0) calc(var(--row-h) - var(--plank-h) + 3px),
-      rgba(0, 0, 0, 0) calc(var(--row-h) - 4px),
-      rgba(0, 0, 0, 0.14) var(--row-h)
-    ),
-    var(--wood-h);
-  background-size: auto, 960px 96px; /* tile drawn at 2x so the grain reads at plank size */
-  -webkit-mask-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent calc(var(--row-h) - var(--plank-h)),
-    #000 calc(var(--row-h) - var(--plank-h)),
-    #000 var(--row-h)
-  );
-  mask-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent calc(var(--row-h) - var(--plank-h)),
-    #000 calc(var(--row-h) - var(--plank-h)),
-    #000 var(--row-h)
-  );
-}
-
-/* Side walls: vertical-grain strips down the left and right edges. */
-.bookshelf::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.1)),
-    linear-gradient(to left, rgba(255, 255, 255, 0.35), rgba(0, 0, 0, 0.1)),
-    var(--wood-v),
-    var(--wood-v);
-  background-size: var(--wall-w) 100%, var(--wall-w) 100%, 96px 960px, 96px 960px;
-  background-position: left top, right top, left top, right top;
-  background-repeat: no-repeat, no-repeat, repeat-y, repeat-y;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    #000 var(--wall-w),
-    transparent var(--wall-w),
-    transparent calc(100% - var(--wall-w)),
-    #000 calc(100% - var(--wall-w))
-  );
-  mask-image: linear-gradient(
-    to right,
-    #000 var(--wall-w),
-    transparent var(--wall-w),
-    transparent calc(100% - var(--wall-w)),
-    #000 calc(100% - var(--wall-w))
-  );
+  left: auto;
+  right: auto;
+  bottom: auto;
+  border-radius: 4px 4px 0 0;
 }
 
 .book {
-  position: relative;
-  z-index: 1; /* above the plank / wall layers */
   display: flex;
   align-items: flex-end;
   justify-content: center;
   height: 100%;
-  padding-bottom: var(--plank-h);
   margin: 0;
+  transform-style: preserve-3d; /* keep the cover's 3D motion in the books layer */
 }
 
+/* Hovering lifts the book off the shelf and tilts it slightly, cover
+   always facing the viewer. */
 .book-cover {
   position: relative;
   display: block;
@@ -379,7 +461,7 @@
   max-width: 100%;
   border-radius: 2px 5px 5px 2px;
   transform-origin: bottom center;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .book-cover img {
@@ -390,8 +472,9 @@
   object-fit: cover;
   border-radius: inherit;
   box-shadow:
-    4px 6px 14px rgba(0, 0, 0, 0.22),
+    6px 8px 18px rgba(0, 0, 0, 0.28),
     0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* spine shading along the left edge */
@@ -411,10 +494,21 @@
 }
 
 .book:hover .book-cover {
-  transform: translateY(-10px) rotate(-2deg);
-  filter: brightness(1.04);
+  transform: translateY(-14px) translateZ(24px) rotate(-3deg);
 }
 
+.book:hover .book-cover img {
+  box-shadow:
+    10px 16px 28px rgba(0, 0, 0, 0.32),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-cover,
+  .book-cover img {
+    transition: none;
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -472,10 +566,11 @@
     --row-h: calc(var(--book-h) + 40px);
     --plank-h: 10px;
     --wall-w: 8px;
+    --depth: 36px;
   }
 
-  .bookshelf {
-    padding: 0 calc(0.5rem + var(--wall-w));
+  .shelf-books {
+    padding: 0 0.5rem;
   }
 
   .news-item {
