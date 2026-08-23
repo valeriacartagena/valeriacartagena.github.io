@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
-import Tutorials from './pages/Tutorials'
 import Library from './pages/Library'
 import './App.css'
 
@@ -9,8 +8,8 @@ import './App.css'
 const MENU = [
   { id: 'about', label: 'About', to: { pathname: '/', hash: '#home' } },
   { id: 'research', label: 'Research', to: { pathname: '/', hash: '#research' } },
-  { id: 'tutorials', label: 'Tutorials', to: { pathname: '/tutorials' } },
-  { id: 'Library', label: 'Library', to: { pathname: '/Library' } },
+  { id: 'tutorials', label: 'Tutorials', to: { pathname: '/', hash: '#tutorials' } },
+  { id: 'library', label: 'Library', to: { pathname: '/library' } },
 ]
 
 function isActive(item, location) {
@@ -61,8 +60,7 @@ function App() {
         <ScrollManager />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tutorials" element={<Tutorials />} />
-          <Route path="/Library" element={<Library />} />
+          <Route path="/library" element={<Library />} />
         </Routes>
 
         <footer className="footer">
