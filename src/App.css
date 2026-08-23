@@ -577,6 +577,34 @@ a.tutorial-card:hover {
   color: var(--color-body);
 }
 
+/* a tutorial's own page */
+.back-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.tutorial-hero {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+
+.tutorial-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.tutorial-content p + p {
+  margin-top: 1rem;
+}
+
 /* --- footer --- */
 
 .footer {

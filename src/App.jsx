@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Library from './pages/Library'
+import TutorialPage from './pages/TutorialPage'
 import './App.css'
 
 // Section buttons scroll within the home page; page buttons navigate to a route.
@@ -61,6 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
+          <Route path="/tutorials/:slug" element={<TutorialPage />} />
         </Routes>
 
         <footer className="footer">

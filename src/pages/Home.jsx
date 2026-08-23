@@ -1,4 +1,5 @@
-import deloreanCover from '../tutorials-covers/delorean.jpg'
+import { Link } from 'react-router-dom'
+import { tutorials } from '../data/tutorials'
 
 const GitHubIcon = () => (
   <svg className="link-icon" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true">
@@ -106,16 +107,6 @@ function Home() {
     }
   ];
 
-  // Each tutorial gets its own card: cover image on the left, title and
-  // description on the right. Add `url` to make the card a link.
-  const tutorials = [
-    {
-      title: 'Tutorial #1',
-      description: 'Coming in the future...',
-      cover: deloreanCover
-    }
-  ];
-
   return (
     <>
       <header id="home" className="hero">
@@ -171,21 +162,16 @@ function Home() {
       <section id="tutorials" className="home-block">
         <h2 className="news-title">Tutorials</h2>
         <div className="tutorial-list">
-          {tutorials.map((tutorial) => {
-            const Card = tutorial.url ? 'a' : 'article'
-            const linkProps = tutorial.url
-              ? { href: tutorial.url, target: '_blank', rel: 'noopener noreferrer' }
-              : {}
-            return (
-              <Card key={tutorial.title} className="tutorial-card" {...linkProps}>
-                <img className="tutorial-cover" src={tutorial.cover} alt="" />
-                <div className="tutorial-body">
-                  <h3 className="tutorial-title">{tutorial.title}</h3>
-                  <p className="tutorial-desc">{tutorial.description}</p>
-                </div>
-              </Card>
-            )
-          })}
+          {/* each card opens that tutorial's own page */}
+          {tutorials.map((tutorial) => (
+            <Link key={tutorial.slug} to={`/tutorials/${tutorial.slug}`} className="tutorial-card">
+              <img className="tutorial-cover" src={tutorial.cover} alt="" />
+              <div className="tutorial-body">
+                <h3 className="tutorial-title">{tutorial.title}</h3>
+                <p className="tutorial-desc">{tutorial.description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </>
