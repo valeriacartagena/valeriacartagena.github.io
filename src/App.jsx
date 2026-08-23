@@ -10,7 +10,7 @@ const MENU = [
   { id: 'news', label: 'News', to: { pathname: '/', hash: '#news' } },
   { id: 'research', label: 'Research', to: { pathname: '/', hash: '#research' } },
   { id: 'tutorials', label: 'Tutorials', to: { pathname: '/tutorials' } },
-  { id: 'library', label: 'Library', to: { pathname: '/library' } },
+  { id: 'Library', label: 'Library', to: { pathname: '/Library' } },
 ]
 
 function isActive(item, location) {
@@ -62,7 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tutorials" element={<Tutorials />} />
-          <Route path="/library" element={<Library />} />
+          <Route path="/Library" element={<Library />} />
         </Routes>
 
         <footer className="footer">

@@ -46,8 +46,32 @@ function Home() {
       )
     },
     {
+      date: '03/2026',
+      text: (
+        <>
+          Presented progress on Lens AI, CS senior capstone with <a href="https://www.nvidia.com/" target="_blank" rel="noopener noreferrer">NVIDIA</a> through the <a href="https://web.stanford.edu/class/cs210/index.html" target="_blank" rel="noopener noreferrer">Stanford Industry Innovation Lab</a>, at NVIDIA headquarters.
+        </>
+      )
+    },
+    {
+      date: '01/2026',
+      text: (
+        <>
+          Attended the <a href="https://www.liquidsunlightalliance.org/" target="_blank" rel="noopener noreferrer">Liquid Sunlight Alliance</a> all-hands meeting at Caltech and presented a poster on ICP-MS for catalyst degradation as part of SLAC&apos;s <a href="https://suncat.stanford.edu/" target="_blank" rel="noopener noreferrer">SUNCAT</a> center.
+        </>
+      )
+    },
+    {
       date: '11/2025', text: (
         <> <a href="https://devpost.com/software/terralink-h5vuel" target="_blank" rel="noopener noreferrer">TerraLink</a> won HackPrinceton! Best Sustainability Hack (1st Place) and Best Overall (3rd Place), among 600+ hackers. Prizes were sponsored by OpenAI, Anthropic, Amplitude, and EaglePlan.</>
+      )
+    },
+    {
+      date: '08/2025',
+      text: (
+        <>
+          Completed my summer internship at <a href="https://www.twelve.co/" target="_blank" rel="noopener noreferrer">Twelve</a>, a carbon-transformation unicorn turning CO₂ into essential chemicals and sustainable aviation fuel, under the Strategy & Special Projects team.
+        </>
       )
     }
   ];
@@ -73,21 +97,25 @@ function Home() {
         </div>
       </header>
 
-      <section id="news" className="news-section">
+      <section id="news" className="home-block">
         <h2 className="news-title">News</h2>
-        <ul className="news-list">
-          {news.map((item, i) => (
-            <li key={`${item.date}-${i}`} className="news-item">
-              <span className="news-date">{item.date}</span>
-              <span className="news-text">{item.text}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="news-section">
+          <ul className="news-list">
+            {news.map((item, i) => (
+              <li key={`${item.date}-${i}`} className="news-item">
+                <span className="news-date">{item.date}</span>
+                <span className="news-text">{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      <section id="research" className="news-section">
+      <section id="research" className="home-block">
         <h2 className="news-title">Research</h2>
-        <p className="placeholder">Coming soon.</p>
+        <div className="news-section">
+          <p className="placeholder">Coming soon.</p>
+        </div>
       </section>
     </>
   )

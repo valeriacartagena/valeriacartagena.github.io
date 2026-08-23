@@ -24,6 +24,14 @@ const catalog = {
     { file: 'infinity-machine', title: 'The Infinity Machine', author: 'Sebastian Mallaby', reading: true },
     { file: 'brief-history-of-intelligence', title: 'A Brief History of Intelligence', author: 'Max Bennett', reading: true },
   ],
+  'Previous Years': [
+    { file: 'quantum-supremacy', title: 'Quantum Supremacy', author: 'Michio Kaku', reading: true },
+    // listed books come first, in this order; the rest follow alphabetically
+    { file: 'bible', title: 'Holy Bible', author: '' },
+    { file: 'atomic-habits', title: 'Atomic Habits', author: 'James Clear' },
+    { file: 'astrophysics-for-people-in-a-hurry', title: 'Astrophysics for People in a Hurry', author: 'Neil deGrasse Tyson' },
+    { file: 'code', title: 'Code: The Hidden Language of Computer Hardware and Software', author: 'Charles Petzold' },
+  ],
 }
 
 function titleFromFile(name) {
