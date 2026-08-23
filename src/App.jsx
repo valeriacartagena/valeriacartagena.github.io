@@ -7,7 +7,7 @@ import './App.css'
 
 // Section buttons scroll within the home page; page buttons navigate to a route.
 const MENU = [
-  { id: 'news', label: 'News', to: { pathname: '/', hash: '#news' } },
+  { id: 'about', label: 'About', to: { pathname: '/', hash: '#home' } },
   { id: 'research', label: 'Research', to: { pathname: '/', hash: '#research' } },
   { id: 'tutorials', label: 'Tutorials', to: { pathname: '/tutorials' } },
   { id: 'Library', label: 'Library', to: { pathname: '/Library' } },

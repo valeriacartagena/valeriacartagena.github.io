@@ -47,9 +47,13 @@
   z-index: 1;
 }
 
+.home-block,
+.hero {
+  scroll-margin-top: calc(var(--top-bar-height) + 1.5rem);
+}
+
 .home-block {
   width: 100%;
-  scroll-margin-top: calc(var(--top-bar-height) + 1.5rem);
 }
 
 .home-block+.home-block {

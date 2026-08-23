@@ -76,6 +76,34 @@ function Home() {
     }
   ];
 
+  // Published work with a DOI, newest first.
+  const publications = [
+    {
+      date: '2026',
+      title: 'Reclaiming Cooling: Wastewater Reuse as a Strategic Resource for Data Center Water Management',
+      venue: 'Preprint, June 2026',
+      url: 'https://doi.org/10.31224/7240'
+    },
+    {
+      date: '2026',
+      title: 'Certification of Carbon Intensity for Geological Hydrogen (Methodological Framework and Regulatory Benchmarks for Bankable Projects)',
+      venue: 'Offshore Technology Conference, April 2026',
+      url: 'https://doi.org/10.4043/37197-MS'
+    },
+    {
+      date: '2025',
+      title: 'Insights into Material Dynamics from Operando Studies of Industrially Relevant Zero-Gap Water Electrolyzers',
+      venue: '2025 AIChE Annual Meeting, November 2025',
+      url: 'https://aiche.confex.com/aiche/2025/meetingapp.cgi/Paper/712221'
+    },
+    {
+      date: '2025',
+      title: 'Durable, Pure Water-Fed, Anion-Exchange Membrane Electrolyzers through Interphase Engineering',
+      venue: 'Science 390 (6770), 294–298',
+      url: 'https://doi.org/10.1126/science.adw7100'
+    }
+  ];
+
   return (
     <>
       <header id="home" className="hero">
@@ -114,7 +142,17 @@ function Home() {
       <section id="research" className="home-block">
         <h2 className="news-title">Research</h2>
         <div className="news-section">
-          <p className="placeholder">Coming soon.</p>
+          <ul className="news-list">
+            {publications.map((pub) => (
+              <li key={pub.url} className="news-item">
+                <span className="news-date">{pub.date}</span>
+                <span className="news-text">
+                  <a href={pub.url} target="_blank" rel="noopener noreferrer">{pub.title}</a>.{' '}
+                  <em>{pub.venue}</em>.
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>
