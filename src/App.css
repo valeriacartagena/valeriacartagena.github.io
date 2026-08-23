@@ -460,6 +460,9 @@
   margin: 0;
   transform-style: preserve-3d;
   /* keep the cover's 3D motion in the books layer */
+  text-decoration: none; /* it's a link (to Goodreads) */
+  color: inherit;
+  cursor: pointer;
 }
 
 /* Hovering lifts the book off the shelf and tilts it slightly, cover

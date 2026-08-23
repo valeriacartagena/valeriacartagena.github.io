@@ -1,12 +1,5 @@
 import deloreanCover from '../tutorials-covers/delorean.jpg'
 
-// Body used by the placeholder tutorials until real ones are written.
-const placeholderContent = (
-  <>
-    <p>This tutorial is still being written — check back soon.</p>
-  </>
-)
-
 // Each tutorial shows as a card on the home page and has its own page at
 // /tutorials/<slug>. `content` is the body of that page (JSX).
 export const tutorials = [

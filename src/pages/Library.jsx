@@ -12,12 +12,18 @@ function chunk(items, size) {
 function Book({ book }) {
   const label = book.author ? `${book.title} — ${book.author}` : book.title
   return (
-    <figure className="book" title={label}>
+    <a
+      className="book"
+      href={book.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={`${label} — view on Goodreads`}
+    >
       <span className="book-cover">
         <img src={book.cover} alt={label} loading="lazy" />
       </span>
-      <figcaption className="sr-only">{label}</figcaption>
-    </figure>
+      <span className="sr-only">{label} (opens on Goodreads)</span>
+    </a>
   )
 }
 
