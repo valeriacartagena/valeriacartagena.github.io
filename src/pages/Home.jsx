@@ -60,7 +60,7 @@ function Home() {
       date: '03/2026',
       text: (
         <>
-          Started new position as Teaching Assistant for the <a href="https://explorecourses.stanford.edu/search?q=Energy+108%3a+Explore+Energy&view=catalog&page=0&filter-coursestatus-Active=on&collapse=&academicYear=20252026" target="_blank" rel="noopener noreferrer">Stanford Explore Energy</a> seminar.
+          Started position as Teaching Assistant for Stanford <a href="https://explorecourses.stanford.edu/search?q=Energy+108%3a+Explore+Energy&view=catalog&page=0&filter-coursestatus-Active=on&collapse=&academicYear=20252026" target="_blank" rel="noopener noreferrer">ENERGY/CEE 108/208: Explore Energy Seminar</a>!
         </>
       )
     },
