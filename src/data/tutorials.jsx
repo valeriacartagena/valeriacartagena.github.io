@@ -10,8 +10,10 @@ export const tutorials = [
     cover: deloreanCover,
     content: (
       <>
-        <p><em>&ldquo;Roads? Where we&rsquo;re going, we don&rsquo;t need roads.&rdquo;</em></p>
-        <p> - Dr. Emmett Brown</p>
+        <blockquote>
+          <p>&ldquo;Roads? Where we&rsquo;re going, we don&rsquo;t need roads.&rdquo;</p>
+          <footer>Dr. Emmett Brown</footer>
+        </blockquote>
       </>
     ),
   },
@@ -22,8 +24,10 @@ export const tutorials = [
     cover: deloreanCover,
     content: (
       <>
-        <p><em>&ldquo;Whoa. Wait a minute, Doc. Are you telling me that you built a time machine... out of a DeLorean?!&rdquo;</em></p>
-        <p> - Marty McFly</p>
+        <blockquote>
+          <p>&ldquo;Whoa. Wait a minute, Doc. Are you telling me that you built a time machine... out of a DeLorean?!&rdquo;</p>
+          <footer>Marty McFly</footer>
+        </blockquote>
       </>
     ),
   },
@@ -34,8 +38,10 @@ export const tutorials = [
     cover: deloreanCover,
     content: (
       <>
-        <p><em>&ldquo;Remember, Marty, you're just not thinking fourth-dimensionally.&rdquo;</em></p>
-        <p> - Dr. Emmett Brown</p>
+        <blockquote>
+          <p>&ldquo;Remember, Marty, you&rsquo;re just not thinking fourth-dimensionally.&rdquo;</p>
+          <footer>Dr. Emmett Brown</footer>
+        </blockquote>
       </>
     ),
   },
@@ -46,8 +52,10 @@ export const tutorials = [
     cover: deloreanCover,
     content: (
       <>
-        <p><em>&ldquo;All right. This is an oldie, but, uh... well, it's an oldie where I come from.&rdquo;</em></p>
-        <p> - Marty McFly</p>
+        <blockquote>
+          <p>&ldquo;All right. This is an oldie, but, uh... well, it&rsquo;s an oldie where I come from.&rdquo;</p>
+          <footer>Marty McFly</footer>
+        </blockquote>
       </>
     ),
   },
@@ -58,8 +66,10 @@ export const tutorials = [
     cover: deloreanCover,
     content: (
       <>
-        <p><em>&ldquo;I'm your density. I mean...your destiny.&rdquo;</em></p>
-        <p> - George McFly</p>
+        <blockquote>
+          <p>&ldquo;I&rsquo;m your density. I mean...your destiny.&rdquo;</p>
+          <footer>George McFly</footer>
+        </blockquote>
       </>
     ),
   },
